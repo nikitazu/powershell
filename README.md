@@ -1,2 +1,2 @@
 # powershell
-PowerShell scripts for daily usage
+PowerShell scripts for daily usage.
