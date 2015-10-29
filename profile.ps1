@@ -18,3 +18,8 @@ function pkill {
 function pkill-vsdev {
   pkill WebDev.WebServer40
 }
+
+# Arcadia - Itslearning
+function itslog {
+  Select-String ': error' 'C:\GentlemanLog.txt'
+}
