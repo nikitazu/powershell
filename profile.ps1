@@ -15,6 +15,16 @@ function pkill {
   foreach($p in Get-Process -Name $name) { kill $p.Id }
 }
 
+function md5 {
+  [CmdletBinding()]
+  param (
+    [Parameter(Mandatory=$True, ValueFromPipeline=$True, ValueFromPipelineByPropertyName=$True)]
+    [string]
+    $path
+  )
+  Get-FileHash -Path $path -Algorithm MD5
+}
+
 function pkill-vsdev {
   pkill WebDev.WebServer40
 }
