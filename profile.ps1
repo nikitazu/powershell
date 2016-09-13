@@ -30,7 +30,36 @@ function pkill-vs {
   pkill devenv
 }
 
+# Git
+# ###
+function git-merge-to-team-branch {
+  [CmdletBinding()]
+  param (
+    [Parameter(Mandatory=$True, ValueFromPipeline=$True, ValueFromPipelineByPropertyName=$True)]
+    [string]
+    $teamBranchName,
+    [Parameter(Mandatory=$True, ValueFromPipeline=$True, ValueFromPipelineByPropertyName=$True)]
+    [string]
+    $targetBranchName
+  )
+  
+  git checkout $targetBranchName
+  if ($?) {
+    git pull --rebase
+  }
+  if ($?) {
+    git checkout $teamBranchName
+  }
+  if ($?) {
+    git pull --rebase
+  }
+  if ($?){
+    git merge $targetBranchName
+  }
+}
+
 # Arcadia - Itslearning
+# #####################
 function itslog {
   Select-String ': error' 'C:\GentlemanLog.txt'
 }
