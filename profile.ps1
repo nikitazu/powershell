@@ -1,8 +1,5 @@
 ﻿import-module PsGet
 import-module PsUrl
-#import-module Jump.Location
-#import-Module PSColor
-#import-Module PsHosts
 
 function pkill {
   [CmdletBinding()]
@@ -27,6 +24,10 @@ function md5 {
 
 function pkill-vsdev {
   pkill WebDev.WebServer40
+}
+
+function pkill-vs {
+  pkill devenv
 }
 
 # Arcadia - Itslearning
