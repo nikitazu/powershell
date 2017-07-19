@@ -63,3 +63,8 @@ function git-merge-to-team-branch {
 function itslog {
   Select-String ': error' 'C:\GentlemanLog.txt'
 }
+
+function itsbuild {
+  C:\code\main\DevSetup\HelperScripts\BuildLocally\Build_Itslearning.cmd 1 0 0 1 0 0 0 0 0 KISS Forever
+  itslog
+}
