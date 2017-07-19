@@ -60,6 +60,10 @@ function git-merge-to-team-branch {
 
 # Arcadia - Itslearning
 # #####################
+function itsl {
+  cd C:\code\main\
+}
+
 function itslog {
   Select-String ': error' 'C:\GentlemanLog.txt'
 }
