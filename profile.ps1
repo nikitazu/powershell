@@ -1,6 +1,3 @@
-﻿import-module PsGet
-import-module PsUrl
-
 function pkill {
   [CmdletBinding()]
   param (
@@ -42,7 +39,7 @@ function git-merge-to-team-branch {
     [string]
     $targetBranchName
   )
-  
+
   git checkout $targetBranchName
   if ($?) {
     git pull --rebase
