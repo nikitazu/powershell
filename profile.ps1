@@ -69,3 +69,7 @@ function itsbuild {
   C:\code\main\DevSetup\HelperScripts\BuildLocally\Build_Itslearning.cmd 1 0 0 1 0 0 0 0 0 KISS Forever
   itslog
 }
+
+function itsmari {
+    C:\code\main\DevSetup\HelperScripts\BuildLocally\Build_Itslearning.ps1 -update_databases -combine_sql_scripts
+}
