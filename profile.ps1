@@ -66,7 +66,7 @@ function itslog {
 }
 
 function itsbuild {
-  C:\code\main\DevSetup\HelperScripts\BuildLocally\Build_Itslearning.cmd 1 0 0 1 0 0 0 0 0 KISS Forever
+  C:\code\main\DevSetup\HelperScripts\BuildLocally\Build_Itslearning.ps1 -build_complete
   itslog
 }
 
