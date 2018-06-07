@@ -62,7 +62,7 @@ function itsl {
 }
 
 function itslog {
-  Select-String ': error' 'C:\GentlemanLog.txt'
+  Select-String ': error' 'C:\Build_Itslearning_log.txt'
 }
 
 function itsbuild {
