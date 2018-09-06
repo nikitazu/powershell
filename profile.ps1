@@ -19,6 +19,16 @@ function md5 {
   Get-FileHash -Path $path -Algorithm MD5
 }
 
+function b64 {
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory=$True, ValueFromPipeline=$True, ValueFromPipelineByPropertyName=$True)]
+        [string]
+        $path
+    )
+    [Convert]::ToBase64String([IO.File]::ReadAllBytes($path))
+}
+
 function pkill-vsdev {
   pkill WebDev.WebServer40
 }
