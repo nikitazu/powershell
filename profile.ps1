@@ -72,7 +72,10 @@ function itsl {
 }
 
 function itslog {
-  Select-String ': error' 'C:\Build_Itslearning_log.txt'
+  Select-String `
+    -Pattern ': error' `
+    -Path 'C:\Build_Itslearning_log.txt' `
+    | Select-String -NotMatch -Pattern 'BlackboardCollaborate'
 }
 
 function itsbuild {
@@ -80,6 +83,31 @@ function itsbuild {
   itslog
 }
 
+function itsprebuild {
+  C:\code\main\DevSetup\HelperScripts\PreBuildWebProjects\PreBuildWebProjects.cmd
+  itslog
+}
+
+function itsts {
+  & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\Msbuild.exe" "C:\code\main\Itslearning\StaticContent\Itslearning.Web.Cdn.csproj" /target:Build /verbosity:minimal
+}
+
 function itsmari {
-    C:\code\main\DevSetup\HelperScripts\BuildLocally\Build_Itslearning.ps1 -update_databases -combine_sql_scripts
+    C:\code\main\DevSetup\HelperScripts\BuildLocally\Build_Itslearning.ps1 -update_databases -combine_sql_scripts -skipUnitTests -skipInstallBuildPrerequisitesAndGulp
+}
+
+function itsyarn {
+    if ("$(pwd)" -eq "C:\code\main") {
+        & "C:\Program Files\Git\bin\sh.exe" --login -i -c "git update-index --assume-unchanged Itslearning/StaticContent/application/Calendar_Overview/Calendar_Overview.bundle.min.*"
+    } else {
+        Write-Error "You should be in C:\code\main to do this"
+    }
+}
+
+function itsunyarn {
+    if ("$(pwd)" -eq "C:\code\main") {
+        & "C:\Program Files\Git\bin\sh.exe" --login -i -c "git update-index --no-assume-unchanged Itslearning/StaticContent/application/Calendar_Overview/Calendar_Overview.bundle.min.*"
+    } else {
+        Write-Error "You should be in C:\code\main to do this"
+    }
 }
